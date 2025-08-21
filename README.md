@@ -213,10 +213,18 @@ set(VCPKG_CMAKE_CONFIGURE_OPTIONS "-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
     cmake --build build-Standalone --target install --parallel $(nproc)
 
     ```
+    
+    ```bash
+    pwd # you should be in com.cesium.unity/ folder
+    cd native~
+    cmake -B build-Editor -S . -DCMAKE_BUILD_TYPE=RelWithDebInfo -DVCPKG_TRIPLET=x64-linux-unity -DVCPKG_OVERLAY_TRIPLETS=$(pwd)/vcpkg/triplets -DEDITOR=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    cmake --build build-Editor --target install --parallel $(nproc)
+
+    ```
 
     - This produces `CesiumForUnityNative-Editor.so` (on Linux) and installs it to `../Editor` by default.
 
-2. **Restart Unity**  
+1. **Restart Unity**  
     - After installing the Editor library, reopen Unity.  
     - Unity should now load `CesiumForUnityNative-Editor.so` without throwing `DllNotFoundException`.
 
