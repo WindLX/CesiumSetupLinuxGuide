@@ -203,13 +203,13 @@ set(VCPKG_CMAKE_CONFIGURE_OPTIONS "-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
 
 1. **Build the Native Editor Library**  
     - Close Unity.
-    - Remove `-Werror` in native~/extern/cesium-native/cmake/marcros/configure_cesium_library.cmake and native~/extern/cesium-native/cmake/compiler.cmake
+    - Remove `-Werror` in `native~/extern/cesium-native/cmake/marcros/configure_cesium_library.cmake` and `native~/extern/cesium-native/cmake/compiler.cmake`
     - In a terminal:
 
     ```bash
     pwd # you should be in com.cesium.unity/ folder
     cd native~
-    cmake -B build-Standalone -S . -DCMAKE_BUILD_TYPE=RelWithDebInfo -DVCPKG_TRIPLET=x64-linux-unity -DVCPKG_OVERLAY_TRIPLETS=$(pwd)/vcpkg/triplets -DEDITOR=OFF
+    cmake -B build-Standalone -S . -DCMAKE_BUILD_TYPE=RelWithDebInfo -DVCPKG_TRIPLET=x64-linux-unity -DVCPKG_OVERLAY_TRIPLETS=$(pwd)/vcpkg/triplets -DEDITOR=OFF -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     cmake --build build-Standalone --target install --parallel $(nproc)
 
     ```
