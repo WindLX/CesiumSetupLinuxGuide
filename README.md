@@ -202,7 +202,8 @@ set(VCPKG_CMAKE_CONFIGURE_OPTIONS "-DCMAKE_POLICY_VERSION_MINIMUM=3.5")
 ## 8. Build using x64-linux-unity.cmake you created
 
 1. **Build the Native Editor Library**  
-    - Close Unity. 
+    - Close Unity.
+    - Remove `-Werror` in native~/extern/cesium-native/cmake/marcros/configure_cesium_library.cmake and native~/extern/cesium-native/cmake/compiler.cmake
     - In a terminal:
 
     ```bash
